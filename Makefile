@@ -35,7 +35,7 @@ clean: clean-build clean-jar
 
 .PHONY: clean-build
 clean-build:
-	rm -f $(wildcard $(BUILDDIR)/*)
+	rm -f $(wildcard $(BUILDDIR)/*) Manifest.txt
 	rm -df $(BUILDDIR)
 
 .PHONY: clean-jar
