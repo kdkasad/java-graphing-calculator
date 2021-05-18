@@ -8,6 +8,7 @@ import java.awt.*;
  * @version 2021-05-17
  */
 public class GraphingCalculator extends JFrame {
+	private static final String DEFAULT_EQUATION = "y = sin(x)";
 	private static final String WINDOW_TITLE = "Graphing Calculator";
 	private static final Color BACKGROUND_COLOR = new Color(0x1d, 0x1e, 0x20); // #1d1e20
 	private static final Color FOREGROUND_COLOR = new Color(0xd6, 0xd6, 0xd6); // #d6d6d6
@@ -27,7 +28,7 @@ public class GraphingCalculator extends JFrame {
 		setForeground(FOREGROUND_COLOR);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		gp = new GraphPanel(BACKGROUND_COLOR, FOREGROUND_COLOR);
+		gp = new GraphPanel(BACKGROUND_COLOR, FOREGROUND_COLOR, new Equation(DEFAULT_EQUATION));
 		gp.setEnabled(false);
 		add(gp);
 	}

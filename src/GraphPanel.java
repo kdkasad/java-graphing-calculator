@@ -12,7 +12,6 @@ import javax.swing.*;
  * @version 2021-05-17
  */
 public class GraphPanel extends JPanel implements MouseListener, MouseMotionListener, MouseWheelListener {
-	private static final String DEFAULT_EQUATION = "y = sin(x)";
 	private static final double DEFAULT_LEVEL_OF_DETAIL = 0.01;
 	private static final double DEFAULT_SCALE = 50;
 	private static final double MIN_SCALE = 2;
@@ -31,8 +30,9 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	 *
 	 * @param bg background color
 	 * @param fg foreground color (used for graph lines)
+	 * @param initialEquation initial equation
 	 */
-	public GraphPanel(Color bg, Color fg) {
+	public GraphPanel(Color bg, Color fg, Equation initialEquation) {
 		super();
 		setBackground(bg);
 		setForeground(fg);
@@ -42,7 +42,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		addMouseWheelListener(this);
 
 		scale = DEFAULT_SCALE;
-		e = new Equation(DEFAULT_EQUATION);
+		e = initialEquation;
 		levelOfDetail = DEFAULT_LEVEL_OF_DETAIL;
 		tooltipEnabled = false;
 	}
