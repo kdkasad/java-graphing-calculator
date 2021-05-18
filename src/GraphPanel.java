@@ -53,6 +53,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	 */
 	public void setEquation(Equation e) {
 		this.e = e;
+		repaint();
 	}
 
 	/**
