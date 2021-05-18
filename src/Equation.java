@@ -25,6 +25,10 @@ public class Equation {
 	 * @return the value of 'y' at the given 'x'
 	 */
 	public double evaluate(double x) {
-		return e.setVariable("x", x).evaluate();
+		try {
+			return e.setVariable("x", x).evaluate();
+		} catch (ArithmeticException e) {
+			return Double.POSITIVE_INFINITY;
+		}
 	}
 }
