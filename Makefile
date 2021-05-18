@@ -1,4 +1,4 @@
-CLASSES   := GraphingCalculator GraphPanel Equation
+CLASSES   := GraphingCalculator GraphPanel Equation Point
 MAINCLASS := GraphingCalculator
 JARFILE   := GraphingCalculator.jar
 
