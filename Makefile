@@ -14,18 +14,13 @@ CPLIBS := $(wildcard $(LIBDIR)/*.jar)
 
 .PHONY: all
 all: $(JARFILE)
-	rm -f Manifest.txt
 
-$(JARFILE): $(addprefix $(BUILDDIR)/,$(addsuffix .class,$(CLASSES))) Manifest.txt
-	$(JAR) -cfm $@ Manifest.txt -C $(BUILDDIR) .
+$(JARFILE): $(addprefix $(BUILDDIR)/,$(addsuffix .class,$(CLASSES)))
+	for LIB in $(CPLIBS) ; do bsdtar -C $(BUILDDIR) -xf $(LIBDIR)/exp4j-0.4.8.jar --exclude=META-INF ; done
+	$(JAR) -cfe $@ $(MAINCLASS) -C $(BUILDDIR) .
 
 $(BUILDDIR)/%.class: $(SRCDIR)/%.java
 	$(JAVAC) -d $(BUILDDIR) -cp $(subst $() $(),:,$(CPLIBS)):$(SRCDIR) -implicit:none $<
-
-Manifest.txt:
-	echo "Manifest-Version: 1.0" > $@
-	echo "Class-Path: $(CPLIBS)" >> $@
-	echo "Main-Class: $(MAINCLASS)" >> $@
 
 $(BUILDDIR):
 	mkdir -p $@
@@ -35,7 +30,7 @@ clean: clean-build clean-jar
 
 .PHONY: clean-build
 clean-build:
-	rm -f $(wildcard $(BUILDDIR)/*) Manifest.txt
+	rm -rf $(wildcard $(BUILDDIR)/*)
 	rm -df $(BUILDDIR)
 
 .PHONY: clean-jar
