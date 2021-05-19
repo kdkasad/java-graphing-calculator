@@ -1,2 +1,4 @@
-!lib/*
-!lib/
+/build/
+*.jar
+*.class
+*.pdf
