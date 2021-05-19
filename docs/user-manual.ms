@@ -278,3 +278,19 @@ y = 15x^5 + 10x^4 + 5x^3 + x^2 + -7x - 1829
 .br
 y = -2
 \fP\
+
+.NH 1
+Open Source Licenses
+.LP
+The Graphing Calculator program uses the following libraries:
+.IP
+.TS
+lb lb lb
+l l l .
+Name	Author	License
+T{
+.pdfhref W -D "https://lallafa.objecthunter.net/exp4j/" -- exp4j
+T}	Frank Asseg	T{
+.pdfhref W -D "https://lallafa.objecthunter.net/exp4j/license.html" -- Apache License 2.0
+T}
+.TE
