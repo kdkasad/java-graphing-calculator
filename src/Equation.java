@@ -1,4 +1,8 @@
-import net.objecthunter.exp4j.*;
+import javax.swing.JOptionPane;
+
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.tokenizer.UnknownFunctionOrVariableException;
 
 /**
  * Represents an equation
@@ -16,7 +20,13 @@ public class Equation {
 	public Equation(String equationString) {
 		/* strip leading 'y = ' */
 		equationString = equationString.replaceAll("^\\s*y\\s*=\\s*", "");
-		e = new ExpressionBuilder(equationString).variable("x").build();
+		try {
+			e = new ExpressionBuilder(equationString).variable("x").build();
+		} catch (UnknownFunctionOrVariableException exception) {
+			JOptionPane.showMessageDialog(null, exception.getMessage(), "Invalid equation", JOptionPane.ERROR_MESSAGE);
+		} catch (IllegalArgumentException exception) {
+			JOptionPane.showMessageDialog(null, exception.getMessage(), "Invalid equation", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	/**
