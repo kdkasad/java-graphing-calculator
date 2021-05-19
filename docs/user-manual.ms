@@ -47,7 +47,7 @@ Using the Graphing Calculator
 
 .LP
 When the Graphing Calculator starts, it will look as follows:
-.PSPIC -C docs/img/start-screen.ps
+.PSPIC -C img/start-screen.ps
 .LP
 It graphs the following example equation, which is shown in the text box at the
 top of the screen:
@@ -75,7 +75,7 @@ x/y coordinates at the point where your mouse is. You can also click and drag,
 and the tooltip will follow your mouse cursor.
 .LP
 The tooltip looks like this:
-.PSPIC -L docs/img/tooltip.ps
+.PSPIC -L img/tooltip.ps
 .KE
 
 .NH 3
@@ -259,7 +259,7 @@ Explicit	Implicit
 Invalid equations
 .LP
 If you enter an invalid equation, you'll get an error message that describes the problem:
-.PSPIC docs/img/error.ps
+.PSPIC img/error.ps
 .KE
 
 .NH 2

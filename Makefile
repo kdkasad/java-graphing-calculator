@@ -5,6 +5,7 @@ JARFILE   := GraphingCalculator.jar
 BUILDDIR := build
 SRCDIR   := src
 LIBDIR   := lib
+DOCDIR   := docs
 
 JAVAC := javac
 JAR   := jar
@@ -26,17 +27,16 @@ $(BUILDDIR):
 	mkdir -p $@
 
 .PHONY: clean
-clean: clean-build clean-jar
-
-.PHONY: clean-build
-clean-build:
+clean:
+	make -C $(DOCDIR) clean
 	rm -rf $(wildcard $(BUILDDIR)/*)
 	rm -df $(BUILDDIR)
-
-.PHONY: clean-jar
-clean-jar:
 	rm -f $(JARFILE)
 
 .PHONY: run
 run: $(JARFILE)
 	@$(JAVA) -jar $<
+
+.PHONY: docs
+docs:
+	make -C $(DOCDIR) all
