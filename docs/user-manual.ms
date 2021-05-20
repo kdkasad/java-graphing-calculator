@@ -135,11 +135,11 @@ The following variables are defined and can be used in your equation:
 lb lb lb
 l l l .
 Variable	Constant	Value
-x	no	current value on the x-axis
-pi	yes	value of \(*p (specifically Java's \fCMath.PI\fP constant)
-\(*p	yes	value of \(*p (same as the variable \fCpi\fP)
-e	yes	value of Euler's number \fIe\fP (specifically Java's \fCMath.E\fP constant)
-\(*f	yes	value of the golden ratio
+\fCx\fP	no	current value on the x-axis
+\fCpi\fP	yes	value of \(*p (specifically Java's \fCMath.PI\fP constant)
+\fC\(*p\fP	yes	value of \(*p (same as the variable \fCpi\fP)
+\fCe\fP	yes	value of Euler's number \fIe\fP (specifically Java's \fCMath.E\fP constant)
+\fC\(*f\fP	yes	value of the golden ratio
 .TE
 
 .KS
@@ -194,7 +194,7 @@ Function	Description
 \fCcosh()\fP	hyperbolic cosine
 \fCexp()\fP	euler's number raised to the power (e^x)
 \fCfloor()\fP	nearest lower integer
-\fClog()\fP	logarithmus naturalis (base e)
+\fClog()\fP	natural logarithm (base e)
 \fClog10()\fP	logarithm (base 10)
 \fClog2()\fP	logarithm (base 2)
 \fCsin()\fP	sine
