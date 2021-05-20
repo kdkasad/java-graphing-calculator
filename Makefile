@@ -7,9 +7,9 @@ SRCDIR   := src
 LIBDIR   := lib
 DOCDIR   := docs
 
-JAVAC := javac
-JAR   := jar
-JAVA  := java
+JAVAC ?= javac
+JAR   ?= jar
+JAVA  ?= java
 
 CPLIBS := $(wildcard $(LIBDIR)/*.jar)
 
@@ -20,7 +20,7 @@ $(JARFILE): $(addprefix $(BUILDDIR)/,$(addsuffix .class,$(CLASSES)))
 	for LIB in $(CPLIBS) ; do bsdtar -C $(BUILDDIR) -xf $(LIBDIR)/exp4j-0.4.8.jar --exclude=META-INF ; done
 	$(JAR) -cfe $@ $(MAINCLASS) -C $(BUILDDIR) .
 
-$(BUILDDIR)/%.class: $(SRCDIR)/%.java
+$(BUILDDIR)/%.class: $(SRCDIR)/%.java | $(BUILDDIR)
 	$(JAVAC) -d $(BUILDDIR) -cp $(subst $() $(),:,$(CPLIBS)):$(SRCDIR) -implicit:none $<
 
 $(BUILDDIR):
