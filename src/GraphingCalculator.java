@@ -36,6 +36,7 @@ public class GraphingCalculator extends JFrame implements ActionListener {
 		p.setLayout(pLayout);
 
 		tf = new JTextField(DEFAULT_EQUATION);
+		tf.addActionListener(this);
 		p.add(tf);
 
 		btn = new JButton("Graph");
