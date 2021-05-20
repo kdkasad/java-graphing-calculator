@@ -77,7 +77,9 @@ public class GraphingCalculator extends JFrame implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent ev) {
-		Equation e = new Equation(tf.getText());
-		gp.setEquation(e);
+		try {
+			Equation e = new Equation(tf.getText());
+			gp.setEquation(e);
+		} catch (IllegalArgumentException e) {}
 	}
 }

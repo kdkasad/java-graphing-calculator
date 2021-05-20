@@ -27,6 +27,8 @@ public class Equation {
 		} catch (IllegalArgumentException exception) {
 			JOptionPane.showMessageDialog(null, exception.getMessage(), "Invalid equation", JOptionPane.ERROR_MESSAGE);
 		}
+		if (e == null)
+			throw new IllegalArgumentException("Invalid equation");
 	}
 
 	/**
