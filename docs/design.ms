@@ -138,4 +138,13 @@ Case	Input	Result
 4	Press mouse on graph line and move it around	Tooltip appears and moves
 5	Release mouse button	Tooltip disappears
 .TE
+
+.SH 2
+Portability testing
+.LP
+I'll test my project's portability by running it on Linux as I develop it, and
+on Windows and MacOS using virtual machines. This will ensure compatibility
+with the majority of computer systems. I'll also ensure it runs on Java Runtime
+Environment (JRE) version 8, since that is the most widely supported
+environment.
 .KE
