@@ -31,16 +31,25 @@ public class GraphingCalculator extends JFrame implements ActionListener {
 		setForeground(FOREGROUND_COLOR);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+		SpringLayout pLayout = new SpringLayout();
 		Panel p = new Panel();
-		p.setLayout(new FlowLayout());
+		p.setLayout(pLayout);
 
 		tf = new JTextField(DEFAULT_EQUATION);
-		tf.setPreferredSize(new Dimension(getWidth() - 150, 30));
 		p.add(tf);
 
 		btn = new JButton("Graph");
 		btn.addActionListener(this);
 		p.add(btn);
+
+		/* set layout constraints */
+		pLayout.putConstraint(SpringLayout.NORTH, tf, 5, SpringLayout.NORTH, p);
+		pLayout.putConstraint(SpringLayout.WEST, tf, 5, SpringLayout.WEST, p);
+		pLayout.putConstraint(SpringLayout.WEST, btn, 5, SpringLayout.EAST, tf);
+		pLayout.putConstraint(SpringLayout.NORTH, btn, 5, SpringLayout.NORTH, p);
+		pLayout.putConstraint(SpringLayout.EAST, p, 5, SpringLayout.EAST, btn);
+		pLayout.putConstraint(SpringLayout.SOUTH, p, 5, SpringLayout.SOUTH, btn);
+		pLayout.putConstraint(SpringLayout.SOUTH, tf, 0, SpringLayout.SOUTH, btn);
 
 		add(p, BorderLayout.NORTH);
 
