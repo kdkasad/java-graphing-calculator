@@ -77,6 +77,10 @@ public class GraphingCalculator extends JFrame implements ActionListener {
 	 * Main method to create one graphing calculator window
 	 */
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {}
+
 		GraphingCalculator gc = new GraphingCalculator(640, 480);
 		gc.run();
 	}
