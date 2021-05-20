@@ -33,6 +33,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	 */
 	public GraphPanel(Color bg, Color fg, Equation initialEquation) {
 		super();
+		setOpaque(true);
 		setBackground(bg);
 		setForeground(fg);
 		fgcolor = fg;
@@ -209,7 +210,8 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	 */
 	@Override
 	public void paintComponent(Graphics g) {
-		super.paintComponents(g);
+		super.paintComponent(g);
+		((Graphics2D) g).setBackground(getBackground());
 		g.clearRect(0, 0, getWidth(), getHeight());
 
 		drawScales(g);
