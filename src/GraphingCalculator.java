@@ -34,6 +34,7 @@ public class GraphingCalculator extends JFrame implements ActionListener {
 		SpringLayout pLayout = new SpringLayout();
 		Panel p = new Panel();
 		p.setLayout(pLayout);
+		p.setBackground(BACKGROUND_COLOR);
 
 		tf = new JTextField(DEFAULT_EQUATION);
 		tf.addActionListener(this);
