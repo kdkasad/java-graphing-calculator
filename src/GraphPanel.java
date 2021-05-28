@@ -168,19 +168,37 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	 * @param g the {@link Graphics} context to draw on
 	 */
 	private void drawGraph(Graphics g) {
+		class ErrorDialogRunner implements Runnable {
+			private String message;
+			public ErrorDialogRunner(String message) {
+				this.message = message;
+			}
+			@Override
+			public void run() {
+				JOptionPane.showMessageDialog(null, message, "Error processing equation", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+
 		double x, y;
 		Point prev;
 
-		g.setColor(fgcolor);
-		((Graphics2D) g).setStroke(new BasicStroke(3));
-		x = -(getGraphWidth() / 2);
-		y = e.evaluate(x);
-		prev = graphToPanelCoords(x, y);
-		for (x = -(getGraphWidth() / 2); x < getGraphWidth() / 2; x += levelOfDetail) {
+		try {
+			g.setColor(fgcolor);
+			((Graphics2D) g).setStroke(new BasicStroke(3));
+			x = -(getGraphWidth() / 2);
 			y = e.evaluate(x);
-			Point d = graphToPanelCoords(x, y);
-			g.drawLine((int) Math.round(prev.x), (int) Math.round(prev.y), (int) Math.round(d.x), (int) Math.round(d.y));
-			prev = d;
+			prev = graphToPanelCoords(x, y);
+			for (x = -(getGraphWidth() / 2); x < getGraphWidth() / 2; x += levelOfDetail) {
+				y = e.evaluate(x);
+				Point d = graphToPanelCoords(x, y);
+				g.drawLine((int) Math.round(prev.x), (int) Math.round(prev.y), (int) Math.round(d.x), (int) Math.round(d.y));
+				prev = d;
+			}
+		} catch (IllegalArgumentException exception) {
+			ErrorDialogRunner edr = new ErrorDialogRunner(exception.getMessage());
+			try {
+				SwingUtilities.invokeLater(edr);
+			} catch (Exception exception2) {}
 		}
 		((Graphics2D) g).setStroke(new BasicStroke(1));
 	}
