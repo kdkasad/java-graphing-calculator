@@ -29,7 +29,7 @@ $(BUILDDIR):
 .PHONY: clean
 clean:
 	make -C $(DOCDIR) clean
-	rm -rf $(wildcard $(BUILDDIR)/*)
+	rm -rf $(subst $$,\$$,$(wildcard $(BUILDDIR)/*))
 	rm -df $(BUILDDIR)
 	rm -f $(JARFILE)
 
